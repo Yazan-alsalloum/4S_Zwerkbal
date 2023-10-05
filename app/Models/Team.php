@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     use HasFactory;
+
+// Voeg de relatie met spelers toe
+public function players()
+{
+    return $this->hasMany(Player::class);
 }
+
+}
+
