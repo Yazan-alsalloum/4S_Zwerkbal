@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UpcomingTournamentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,17 @@ Route::post('/tournaments', [TournamentController::class, 'store'])->name('tourn
 Route::get('/tournaments/{tournament}/edit', [TournamentController::class, 'edit'])->name('tournaments.edit');
 Route::put('/tournaments/{tournament}', [TournamentController::class, 'update'])->name('tournaments.update');
 
-Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
+Route::get('/teams',[TeamController::class,'index'])->name('teams.index');
 Route::get('/teams/create',[TeamController::class,'create'])->name('teams.create');
 Route::post('/teams',[TeamController::class,'store'])->name('teams.store');
+
+
+Route::get('/players',[PlayerController::class,'index'])->name('players.index');
+Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');
+Route::post('/players', [PlayerController::class, 'store'])->name('players.store');
+Route::get('/players/{player}/edit', [PlayerController::class, 'edit'])->name('players.edit');
+Route::put('/players/{player}', [PlayerController::class, 'update'])->name('players.update');
+
+
+
+Route::get('/upcoming', [UpcomingTournamentController::class,'index'])->name('upcoming');
